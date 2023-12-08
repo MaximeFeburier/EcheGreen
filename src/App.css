@@ -14,6 +14,16 @@ body {
     color: #000;
 }
 
+.main-theme-background {
+    background-color: #FFE9B0;
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center bottom;
+    overflow: hidden;
+    position: absolute;
+}
+
 .snow_wrap {
     height: 100vh;
     width: 100%;
@@ -191,4 +201,55 @@ body {
     background-color: pink;
     height: 30vh;
     width: 100%;
+}
+
+@keyframes pop-inMountain {
+    0% {
+        opacity: 0;
+        height: 15vh;
+    }
+    50% {
+        opacity: 1;
+        height: 45vh;
+    }
+    100% {
+        opacity: 1;
+        height: 30vh;
+        width: 20vw;
+    }
+}
+
+.mountain {
+    margin-left: 0px;
+    animation: pop-inMountain 0.5s forwards;
+    animation-delay: 1.5s;
+    width: 20vw;
+    height: 30vh;
+    opacity: 0;
+    z-index: 2;
+}
+
+.runner {
+    margin-left: 0px;
+    animation: pop-inForest 0.5s forwards;
+    animation-delay: 1.5s;
+    width: 25vw;
+    height: 25vh;
+    opacity: 0;
+}
+
+@keyframes pop-inRunner {
+    0% {
+        opacity: 0;
+        height: 15vh;
+    }
+    50% {
+        opacity: 1;
+        height: 30vh;
+    }
+    100% {
+        opacity: 1;
+        height: 25vh;
+        width: 25vw;
+    }
 }

@@ -1,8 +1,9 @@
 import vrai from './../img/vrai.png';
 import faux from './../img/faux.png';
-import quizz from './../img/quiz.png';
+import quizz from './../img/quizz.png';
 import quiznoel from './../img/quiznoel.png';
 import nextnoel from './../img/nextnoel.png';
+import nextclassique from './../img/earthnext.png';
 import './Questions.scss';
 import {Question} from "../App";
 import {useEffect, useState} from "react";
@@ -11,8 +12,9 @@ type QuestionProps = {
     questions: Question[];
     removeQuestion: (questions: Question[], question: string) => void;
     setTextShowed: React.Dispatch<React.SetStateAction<string>>;
+    theme: Boolean;
 }
-const Questions = ({questions, removeQuestion, setTextShowed}: QuestionProps) => {
+const Questions = ({questions, removeQuestion, setTextShowed, theme}: QuestionProps) => {
 
 
     const [questionType, setQuestionType] = useState<Boolean>(false);
@@ -56,14 +58,15 @@ const Questions = ({questions, removeQuestion, setTextShowed}: QuestionProps) =>
         <div className='content'>
             {question && <div className={'card-container'}>
                 <div className={'logo-container'}>
-                    <img className='big-logo-question' src={quiznoel}/>
+                    <img className='big-logo-question' src={theme ? quizz : quiznoel}/>
                 </div>
                 <div className={'question-container'}>
                     <h5>{question?.question}</h5>
                 </div>
                 {!showExplanation && questionType && question.question !== "Plus de question disponible" && question.options.map((elt) => {
                     return <div className={'small-logo-container'}>
-                        <button className={'btn btn-danger sized-button'} onClick={checkResponse(elt)}>{elt}</button>
+                        <button className={'btn  sized-button ' + (!theme ? 'btn-danger' : 'btn-primary')}
+                                onClick={checkResponse(elt)}>{elt}</button>
                     </div>
                 })
                 }
@@ -82,14 +85,14 @@ const Questions = ({questions, removeQuestion, setTextShowed}: QuestionProps) =>
                     <div className={'small-logo-container'}>
                         {question?.response}
                     </div>
-                    <div className={'small-logo-container'}>
+                    <div className={'small-logo-container p-3'}>
                         {question?.explanation}
                     </div>
                     <div className={'small-logo-container'}>
                         <img onClick={() => {
                             setQuestion(drawQuestion(questions));
                             setShowExplanation(false);
-                        }} className='logo-question' src={nextnoel}/>
+                        }} className='logo-question' src={!theme ? nextnoel : nextclassique}/>
                     </div>
                 </>
                 }

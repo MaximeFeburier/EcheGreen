@@ -7,6 +7,11 @@ import forest from './img/forest.png';
 import tree from './img/tree.png';
 import trees from './img/trees.png';
 import trees2 from './img/2trees.png';
+import cows from './img/cows.png';
+import waterfall from './img/waterfall.png';
+import camping from './img/camping.png';
+import mountain from './img/mountain.png';
+
 
 export type Question = {
     question: string;
@@ -29,8 +34,7 @@ function App() {
     }
 
     const [textShowed, setTextShowed] = useState<string>('');
-
-
+    const [theme, setTheme] = useState<Boolean>(false);
     const [questions, setQuestions] = React.useState<Question[]>([
         {
             "question": "Vrai ou Faux : Planter des arbres est la solution la plus efficace pour lutter contre le changement climatique.",
@@ -97,21 +101,22 @@ function App() {
 
     return (
         <>
-            <div className="snow_wrap">
+            {!theme && <div className="snow_wrap">
                 <div className="snow"></div>
-            </div>
+            </div>}
+            {theme && <div className="main-theme-background"></div>}
             <div className="main-container">
                 {textShowed.length > 0 && <div className="text-block">
                     <div className="text">{textShowed}</div>
                 </div>}
                 <div className="quizz-part">
-                    {next ? <Questions setTextShowed={setTextShowed} questions={questions}
+                    {next ? <Questions theme={theme} setTextShowed={setTextShowed} questions={questions}
                                        removeQuestion={removeQuestion}/> : <>
-                        <HomeScreen next={next} setNext={setNext}/>
+                        <HomeScreen theme={theme} setTheme={setTheme} next={next} setNext={setNext}/>
                     </>}
                 </div>
             </div>
-            {<div className="container-trees">
+            {!theme && <div className="container-trees">
                 <div className="contain">
                     <img className="tree3" src={trees} alt="Tree 3"/>
                     <img className="tree1" src={tree} alt="Tree 1"/>
@@ -119,7 +124,13 @@ function App() {
                     <img className="forest" src={forest} alt="Forest"/>
                 </div>
             </div>}
-
+            {theme && <div className="container-trees justify-content-between">
+                <img className="sized_img tree3" src={waterfall}/>
+                <img className="sized_img tree1" src={camping}/>
+                <img className="sized_img runner" src={cows}/>
+                <img className="sized_img mountain" src={mountain}/>
+            </div>
+            }
         </>
     )
         ;
