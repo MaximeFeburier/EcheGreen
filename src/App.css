@@ -1,9 +1,4 @@
-.App {
-    text-align: center;
-    overflow: hidden;
-}
-
-
+/* Neige */
 *, *:after, *:before {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -15,14 +10,22 @@ body {
     font-family: arial;
     font-size: 16px;
     margin: 0;
-    background: #b93232;
+    background: #fff;
     color: #000;
+}
+
+.snow_wrap {
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center bottom;
     overflow: hidden;
+    position: absolute;
+    background-color: #b93232;
 }
 
 .snow, .snow:before, .snow:after {
     position: absolute;
-    z-index: -1;
     top: -650px;
     left: 0;
     bottom: 0;
@@ -63,22 +66,13 @@ body {
     }
 }
 
-.quizz-logo {
-    mix-blend-mode: color-burn;
-}
-
-.tree {
-    position: relative;
-    top: 0;
-    left: 0;
-}
-
-.container {
-    position: absolute;
+/* Arbres */
+.container-trees {
+    height: 100vh;
     width: 100vw;
     display: flex;
     align-items: end;
-    bottom: -4%;
+
 }
 
 .contain {
@@ -86,8 +80,6 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    position: absolute;
-    bottom: 0;
 }
 
 .tree1 {
@@ -100,7 +92,7 @@ body {
 
 .tree2 {
     animation: pop-in 0.5s forwards;
-    animation-delay: 0.75s;
+    animation-delay: 1s;
     width: 25vh;
     height: 25vh;
     opacity: 0;
@@ -110,10 +102,11 @@ body {
 .tree3 {
     margin-left: 00px;
     animation: pop-in 0.5s forwards;
-    animation-delay: 1.2s;
+    animation-delay: 1.5s;
     width: 25vh;
     height: 25vh;
     opacity: 0;
+    z-index: 1;
 }
 
 .forest {
@@ -123,6 +116,7 @@ body {
     width: 25vw;
     height: 25vh;
     opacity: 0;
+    z-index: 2;
 }
 
 @keyframes pop-in {
@@ -154,4 +148,47 @@ body {
         height: 25vh;
         width: 25vw;
     }
+}
+
+
+/* Divs corps de page */
+.main-container {
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+    margin: auto;
+    justify-content: space-evenly;
+    position: fixed;
+}
+
+.quizz-part {
+    background-color: unset;
+    height: 80vh;
+    width: 30vw;
+}
+
+.text-block {
+    background-color: unset;
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    width: 40vw;
+    justify-content: space-evenly;
+}
+
+.text {
+    padding: 2vh;
+    display: flex;
+    background-color: white;
+    border-radius: 8px;
+    height: 30vh;
+    width: 100%;
+}
+
+.image {
+    background-color: pink;
+    height: 30vh;
+    width: 100%;
 }

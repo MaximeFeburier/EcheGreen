@@ -1,0 +1,62 @@
+.logo-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.big-logo-question {
+  height: 15vh;
+}
+
+.logo-question {
+  height: 9vh;
+}
+
+.card-container {
+  background-color: white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 2vh;
+  margin-top: 10vh;
+}
+
+.small-logo-container {
+  justify-content: center;
+  width: 50%;
+}
+
+.sized-button {
+  width: 75%;
+  height: 100%;
+}
+
+.question-container {
+  display: flex;
+  width: 80%;
+  align-content: center;
+  justify-content: center;
+}
+
+.small-logo-container, .small-logo-container-end-align {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
+.small-logo-container-end-align {
+  justify-content: flex-end;
+}
+
+.small-logo-question {
+  height: 5vh;
+  width: 5vh;
+  margin-right: 2vw;
+}

@@ -34,6 +34,14 @@
   color: white;
 }
 
+.start-button {
+  height: 20vh;
+
+  &:hover {
+    filter: brightness(1.2);
+  }
+}
+
 .App-link {
   color: #61dafb;
 }
